@@ -74,7 +74,7 @@ def main():
 
     df.to_csv(r'..\dataset\dataset.csv', index=False, sep="\t")
     #df.to_csv(os.path.join('..', 'dataset', 'dataset.csv'), index=False)
-
+    logging.info("The data is exported in a csv file")
 
 if __name__ == "__main__":
     main()

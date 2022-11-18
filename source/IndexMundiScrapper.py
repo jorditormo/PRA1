@@ -64,7 +64,7 @@ class IndexMundiScrapper:
                             if value.get_text() == currency:
                                 complete_url = self.url + suba['href'] + "&currency=" + value['value']
                                 urls.append(complete_url)
-                                logging.info(f"Url saved: {complete_url}")
+                                logging.info(f"Url {len(urls)} saved: {complete_url}")
 
         return urls
 
@@ -147,10 +147,9 @@ class IndexMundiScrapper:
                     price = cells[1].find(text=True)
                     dict_dataset['month'].append(month)
                     dict_dataset['price'].append(price)
-            logging.info(f"Commodity {comm} data saved")
+            logging.info(f"Commodity saved: {comm}")
 
             df1 = pd.DataFrame(dict_dataset)
             df = pd.concat([df, df1], ignore_index=True)
-            logging.info(f"Saved data of {len(df)} commodities")
 
         return df
