@@ -6,6 +6,7 @@ import os
 logging.basicConfig(level=logging.INFO,
                     format='[%(asctime)s] %(levelname)s - %(message)s',
                     datefmt='%H:%M:%S')
+
 YEARS_RANGES = ["5", "10", "15", "20", "25", "30"]
 CURRENCIES = ["Algerian Dinar",
               "Argentine Peso",

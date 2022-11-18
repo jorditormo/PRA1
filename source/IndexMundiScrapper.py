@@ -152,4 +152,5 @@ class IndexMundiScrapper:
             df1 = pd.DataFrame(dict_dataset)
             df = pd.concat([df, df1], ignore_index=True)
             logging.info(f"Saved data of {len(df)} commodities")
+
         return df
