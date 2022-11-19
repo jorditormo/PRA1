@@ -5,6 +5,7 @@ import time
 import logging
 import argparse
 
+
 class IndexMundiScrapper:
     def __init__(self):
         self.url = 'https://www.indexmundi.com/commodities/'
@@ -21,17 +22,14 @@ class IndexMundiScrapper:
 
     def get_urls(self, currency: str, years_interval: str) -> list:
         """
-        Get url list
+        Get urls
 
         PARAMETERS
         ----------
-
-        url: string
-            Any string
         currency: string
-            usd, eur
+            US Dollar, Euro
         years_interval: string
-            timeframe, in years
+            timeframe, in years "20"
 
         Returns
         -------
@@ -52,13 +50,12 @@ class IndexMundiScrapper:
                 t0 = time.time()
                 subpage = requests.get(commodity_url, self.headers)
                 response_delay = time.time() - t0
-                # time.sleep(10 * response_delay)
+                time.sleep(10 * response_delay)
                 subsoup = BeautifulSoup(subpage.content, 'html.parser')
                 years_id = "l" + years_interval + "y"
                 subtags = subsoup.find_all('a', id=years_id, href=True)
                 for suba in subtags:
                     curr_soup = subsoup.find_all('select', id="listCurrency")
-
                     for option in curr_soup:
                         for value in option:
                             if value.get_text() == currency:
@@ -72,11 +69,6 @@ class IndexMundiScrapper:
         """
         Get categories
 
-        PARAMETERS
-        ----------
-        url: string
-            Any string
-
         Returns
         -------
         dictionary
@@ -89,7 +81,7 @@ class IndexMundiScrapper:
         menu = soup.findAll('li', {'class': 'panel panel-default dropdown'})
         categories = {}
         for item in menu:
-            submenu = [category for category in item.text.split('\n') if category != '' ]
+            submenu = [category for category in item.text.split('\n') if category != '']
             for i in range(len(submenu)):
                 if i == 0:
                     cat = submenu[0]
@@ -101,14 +93,14 @@ class IndexMundiScrapper:
 
     def scrapper(self, urls: list, cats: dict):
         """
-        Get categories
+        Scrapper
 
         PARAMETERS
         ----------
         urls: list
-            list of url to web scrap
+            list of urls to web scrap
         cats: dict
-            dictionary
+            dictionary of categories
 
         Returns
         -------
@@ -121,7 +113,7 @@ class IndexMundiScrapper:
             t0 = time.time()
             req = requests.get(url, self.headers)
             response_delay = time.time() - t0
-            # time.sleep(10 * response_delay)
+            time.sleep(10 * response_delay)
             pagesoup = BeautifulSoup(req.text, "html.parser")
             source = pagesoup.findAll('a', {"id": "linkSource"})
             source = source[0].text

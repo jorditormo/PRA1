@@ -1,12 +1,13 @@
 from IndexMundiScrapper import IndexMundiScrapper
 import logging
 import argparse
-import os
 
 logging.basicConfig(level=logging.INFO,
                     format='[%(asctime)s] %(levelname)s - %(message)s',
                     datefmt='%H:%M:%S')
+
 YEARS_RANGES = ["5", "10", "15", "20", "25", "30"]
+
 CURRENCIES = ["Algerian Dinar",
               "Argentine Peso",
               "Australian Dollar",
@@ -67,13 +68,13 @@ def main():
     parser.add_argument("--years_range", help="Enter the years range", choices=YEARS_RANGES)
     args = parser.parse_args()
     logging.info(args)
+
     scrap = IndexMundiScrapper()
     urls = scrap.get_urls(args.currency, args.years_range)
     cats = scrap.get_categories()
     df = scrap.scrapper(urls, cats)
 
     df.to_csv(r'..\dataset\dataset.csv', index=False, sep="\t")
-    #df.to_csv(os.path.join('..', 'dataset', 'dataset.csv'), index=False)
     logging.info("The data is exported in a csv file")
 
 if __name__ == "__main__":
