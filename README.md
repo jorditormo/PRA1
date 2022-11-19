@@ -21,5 +21,5 @@ pip install -r requirements.txt
 ## Execució
 
 ```python
-python main.py -p 3 -s madrid -H
+python main.py 
 ```
