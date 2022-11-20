@@ -14,7 +14,7 @@ L'estructura general la formen dues carpetes: `source` i `dataset`.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7336214.svg)](https://doi.org/10.5281/zenodo.7336214)
 
 ## Requeriments
-S'ha desenvolupat en la versió Python 3.9.
+S'ha desenvolupat amb la versió Python 3.9.
 ```python
 requests~=2.28.1
 pandas~=1.4.4
