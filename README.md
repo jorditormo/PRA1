@@ -22,7 +22,7 @@ beautifulsoup4~=4.11.1
 ```
 
 ## Execució
-
+Des de la terminal, navegar fins al directori `source' i executar la següent sentència:
 ```python
 python main.py --currency "US Dollar" --years_range 20
 ```
