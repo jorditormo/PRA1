@@ -1,6 +1,6 @@
 # Pràctica 1 - Tipologia i cicle de vida de les dades
 L'objectiu de la pràctica es generar un dataset a partir d'una pàgina web. Els integrants del grup són
-- Judith Cid
+- Judit Cid
 - Jordi Tormo
 
 ## Estructura del projecte:
@@ -24,5 +24,5 @@ beautifulsoup4~=4.11.1
 ## Execució
 
 ```python
-python main.py 
+python main.py --currency "US Dollar" --years_range 20
 ```
