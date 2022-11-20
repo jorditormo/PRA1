@@ -4,7 +4,6 @@ import pandas as pd
 import time
 import logging
 
-
 class IndexMundiScrapper:
     def __init__(self):
         self.url = 'https://www.indexmundi.com/commodities/'
