@@ -15,7 +15,10 @@ L'estructura general la formen dues carpetes: `source` i `dataset`.
 
 ## Requeriments
 ```python
-pip install -r requirements.txt
+requests~=2.28.1
+pandas~=1.4.4
+bs4~=0.0.1
+beautifulsoup4~=4.11.1
 ```
 
 ## Execució
